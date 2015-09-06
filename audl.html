@@ -1,0 +1,91 @@
+
+
+<table class="container" cellspacing="0" cellpadding="1" id="entered">
+	<tr><td>
+		<form action="?GO=GO" method="post" >
+		<table align="center" width="700" border="0">
+			<tr id="menu"><td width="700" align="center"><a href="javascript:ViewPage('listing');">Links</a>&nbsp;|&nbsp;<a href="javascript:ViewPage('options');">Options</a></td></tr>
+			<tr><td width="100%" valign="top">
+				<div id="listing" style="display:block;">
+					<table border="0" style="width:710px;">
+						<tr><td align="center"><textarea id="links" name="links" rows="25" cols="100" style="width:600px;height:400px;border:1px solid #002E43;"></textarea></td></tr>
+						<tr><td align="center" valign="top"><input type="submit" value="Transload files" onclick="javascript:HideAll();" style="width:100px;" /></td></tr>
+					</table>
+				</div>
+				<div id="options" style="display:none;">
+					<table cellspacing="5" style="width:710px;">
+						<tbody>
+							<tr><td align="center">
+								<table align="center">
+									<tr>
+										<td><input type="checkbox" id="useproxy" name="useproxy" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('proxy').style.display=displ;" />&nbsp;Use Proxy Settings</td>
+										<td>&nbsp;</td>
+										<td id="proxy" style="display: none;">
+											<table border="0">
+												<tr><td>Proxy:</td><td><input name="proxy" size="25" /></td></tr>
+												<tr><td>UserName:</td><td><input name="proxyuser" size="25" /></td></tr>
+												<tr><td>Password:</td><td><input name="proxypass" size="25" /></td></tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" value="on" name="premium_acc" id="premium_acc" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('premiumblock').style.display=displ;" />&nbsp;Use Premium Account</td>
+										<td>&nbsp;</td>
+										<td id="premiumblock" style="display: none;">
+											<table width="150" border="0">
+												<tr><td>UserName:&nbsp;</td><td><input type="text" name="premium_user" id="premium_user" size="15" value="" /></td></tr>
+												<tr><td>Password:&nbsp;</td><td><input type="password" name="premium_pass" id="premium_pass" size="15" value="" /></td></tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="cookieuse" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('cookieblock').style.display=displ;" />&nbsp;Additional Cookie Value</td>
+										<td>&nbsp;</td>
+										<td id="cookieblock" style="display: none;">
+											<table width="150" border="0">
+												<tr><td>Key=Value;</td><td><input type="text" name="cookie" id="cookie" size="25" value="" /></td></tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label><input type="checkbox" name="ytube_mp4" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('ytubeopt').style.display=displ;" checked="checked" />&nbsp;YouTube Video Format Selector</label>
+											<table width="150" border="0" id="ytubeopt" style="display: none;">
+												<tr>
+													<td>&nbsp;<label><input type="checkbox" name="cleanname" checked="checked" value="1" /><small>&nbsp;Remove non-supported characters from filename</small></label></td>
+												</tr>
+												<tr>
+													<td>
+														<select name="yt_fmt" id="yt_fmt">
+															<option value="highest" selected="selected">Auto-get the highest quality format available</option>
+															<option value='22'>[22] Video: MP4 720p | Audio: AAC ~192 kbps</option>
+															<option value='43'>[43] Video: WebM 360p | Audio: Vorbis ~128 kbps</option>
+															<option value='18'>[18] Video: MP4 360p | Audio: AAC ~96 kbps</option>
+															<option value='5'>[5] Video: FLV 240p | Audio: MP3 ~64 kbps</option>
+															<option value='36'>[36] Video: 3GP 240p | Audio: AAC ~36 kbps</option>
+															<option value='17'>[17] Video: 3GP 144p | Audio: AAC ~24 kbps</option>
+														</select>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr><td><label><input type="checkbox" name="server_side" value="on" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('serverside').style.display=displ;" />&nbsp;Run Server Side</label></td></tr>
+									<tr id="serverside" style="display: none;">
+										<td><input type="checkbox" name="server_dodelay" value="on" onclick="javascript:var displ=this.checked?'':'none';document.getElementById('serverdelay').style.display=displ;" />Delay Time</td>
+										<td>&nbsp;</td>
+										<td id="serverdelay" style="display: none;">Delay (in seconds): <input type="text" name="serversidedelay" /></td>
+									</tr>
+								</table>
+							</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</td></tr>
+		</table>
+		</form>
+	</td></tr>
+</table>
+</center>
+</body>
+</html>

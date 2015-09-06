@@ -342,12 +342,25 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                 <div id="listing" style="display:block;">
                                     <table border="0" style="width:710px;">
                                         <tr>
-                                            <td align="center"><textarea id="links" name="links" rows="25" cols="100"
-                                                                         style="width:600px;height:400px;border:1px solid #002E43;"></textarea>
+                                            <td align="center"><label>Links:</label><textarea
+                                                    style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); word-wrap: normal; overflow-x: scroll; white-space: pre;"
+                                                    id="links" name="links" rows="25" cols="100"></textarea>
+                                            </td>
+                                            <td align="center">
+                                                <label
+                                                    style="width:50px;height:400px;border:1px solid #002E43;" rows="25"
+                                                    cols="10"> &gt;&gt;
+                                                </label>
+                                            </td>
+                                            <td align="center">
+                                                <label>File Names:</label>
+                                                <textarea
+                                                    style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); white-space: pre; word-wrap: normal; overflow-x: scroll;"
+                                                    name="fileNames" id="fileNames" rows="25" cols="100"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="center" valign="top"><input type="submit"
+                                            <td colspan="20" align="center"><input type="submit"
                                                                                    value="<?php echo lang(34); ?>"
                                                                                    onclick="javascript:HideAll();"
                                                                                    style="width:100px;"/></td>
