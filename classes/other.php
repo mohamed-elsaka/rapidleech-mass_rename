@@ -484,7 +484,7 @@ function check_referer() {
 		html_error(sprintf(lang(7), $refhost, 'External referer not allowed.'));
 	}
 }
-
+/** Rebuild the full url of link. */
 function rebuild_url($url) {
 	$url['scheme'] = strtolower($url['scheme']);
 	return $url['scheme'] . '://' . (!empty($url['user']) && !empty($url['pass']) ? rawurlencode($url['user']) . ':' . rawurlencode($url['pass']) . '@' : '') . strtolower($url['host']) . (!empty($url['port']) && $url['port'] != defport(array('scheme' => $url['scheme'])) ? ':' . $url['port'] : '') . (empty($url['path']) ? '/' : $url['path']) . (!empty($url['query']) ? '?' . $url['query'] : '') . (!empty($url['fragment']) ? '#' . $url['fragment'] : '');
@@ -518,7 +518,10 @@ if (!function_exists('http_chunked_decode')) {
 		return ($hex == dechex($dec));
 	}
 }
-
+/** Test if $site == $host
+ *
+ * e.g: "amazon.com" == "amazon.com"
+ */
 function host_matches($site, $host) {
 	if (empty($site) || empty($host)) return false;
 	if (strtolower($site) == strtolower($host)) return true;

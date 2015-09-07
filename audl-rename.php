@@ -10,23 +10,35 @@ ignore_user_abort(true);
 
 login_check();
 
-require(TEMPLATE_DIR . '/header.php');
+require(TEMPLATE_DIR . 'header.php');
 ?>
     <br/>
 <center>
 <?php
 if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
+    // Checking $_POST values
+    //Links passed
     $_REQUEST['links'] = (isset($_REQUEST['links'])) ? trim($_REQUEST['links']) : '';
     if (empty($_REQUEST['links'])) html_error('No link submited');
     $getlinks = array_values(array_unique(array_filter(array_map('trim', explode("\r\n", $_REQUEST['links'])))));
     if (count($getlinks) < 1) html_error('No links submited');
+
+    //fileNames passed
+    $_REQUEST['fileNames'] = (isset($_REQUEST['fileNames'])) ? trim($_REQUEST['fileNames']) : '';
+    if (empty($_REQUEST['fileNames'])) html_error('No fileNames submited');
+    $getFileNames = array_values(array_unique(array_filter(array_map('trim', explode("\r\n", $_REQUEST['fileNames'])))));
+    if (count($getFileNames) < 1) html_error('No fileNames submited');
+
+    //run Server-side ?
     if (isset($_REQUEST['server_side']) && $_REQUEST['server_side'] == 'on') {
         $GLOBALS['throwRLErrors'] = true;
         // Get supported download plugins
-        require_once(HOST_DIR . 'download/hosts.php');
-        require_once(CLASS_DIR . 'ftp.php');
-        require_once(CLASS_DIR . 'http.php');
+        require_once(HOST_DIR . 'download/hosts.php'); //download from supported hosts plugins
+        require_once(CLASS_DIR . 'ftp.php'); // download by ftp protocol
+        require_once(CLASS_DIR . 'http.php'); // download by http protocol
         ?>
+
+        <!-- Table previewing download Links & Status -->
         <table class="container" cellspacing="1">
             <tr>
                 <td width="80%" align="center"><b><?php echo lang(21); ?></b></td>
@@ -36,6 +48,8 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             for ($i = 0; $i < count($getlinks); $i++) echo "\t<tr><td width='80%' nowrap='nowrap'>" . htmlentities($getlinks[$i]) . "</td><td width='70' id='status$i'>" . lang(23) . "</td></tr>$nn";
             ?>
         </table>
+
+        <!-- JS Update status of download progress bar -->
         <script type="text/javascript">
             /* <![CDATA[ */
             function updateStatus(id, status) {
@@ -51,7 +65,9 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             /* ]]> */
         </script>
         <br/><br/>
+
         <?php
+        //Analyze every link passed
         for ($i = 0; $i < count($getlinks); $i++) {
             $isHost = false;
             unset($FileName);
@@ -60,16 +76,33 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             unset($bytesReceived);
 
             $LINK = $getlinks[$i];
-            $Url = parse_url($LINK);
+            $Url = parse_url($LINK); //returns array of link components
+                /*e.g if($LINK == "http://username:password@hostname:9090/path?arg=value#anchor" )
+                    then it returns to $Url the following >>
+                array(8) {
+                  ["scheme"]=> string(4) "http"
+                  ["host"]=>   string(8) "hostname"
+                  ["port"]=>   int(9090)
+                  ["user"]=>   string(8) "username"
+                  ["pass"]=>   string(8) "password"
+                  ["path"]=>   string(5) "/path"
+                  ["query"]=>  string(9) "arg=value"
+                  ["fragment"]=> string(6) "anchor"
+                }
+                */
+
             $Url['scheme'] = strtolower($Url['scheme']);
-            $Url['path'] = (empty($Url['path'])) ? '/' : str_replace('%2F', '/', rawurlencode(rawurldecode($Url['path'])));
+            //if no path then set it to "/" OTHERWISE replace all url-encoded "/" (%2F) in the url with "/"
+            $Url['path'] = ( empty($Url['path'])) ? '/' : str_replace('%2F', '/', rawurlencode(rawurldecode($Url['path'])));
 
             $Referer = $Url;
-            unset($Referer['user'], $Referer['pass']); // Remove login from Referer
+            // Remove login from Referer for security
+            unset($Referer['user'], $Referer['pass']);
             $Referer = rebuild_url($Referer);
 
             $_GET = array('GO' => 'GO'); // for insert_location()
 
+            //use proxy if provided
             if (isset($_POST['useproxy']) && (empty($_POST['proxy']) || strpos($_POST['proxy'], ':') === false)) html_error(lang(20));
             if (isset($_POST['useproxy']) && $_POST['useproxy'] == 'on') {
                 $_GET['useproxy'] = 'on';
@@ -77,41 +110,52 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                 $_GET['pauth'] = (!empty($_GET['proxyuser']) && !empty($_GET['proxypass'])) ? base64_encode($_GET['proxyuser'] . ':' . $_GET['proxypass']) : '';
             }
 
+            //use premium host account if provided
             if (isset($_POST['premium_acc'])) {
                 $_GET['premium_acc'] = 'on';
                 $_GET['premium_user'] = $_REQUEST['premium_user'] = (empty($_POST['premium_user'])) ? '' : $_POST['premium_user'];
                 $_GET['premium_pass'] = $_REQUEST['premium_pass'] = (empty($_POST['premium_pass'])) ? '' : $_POST['premium_pass'];
             }
 
+            //use Basic Http Authentication if provided
             if (!empty($Url['user']) && !empty($Url['pass'])) {
                 $_GET['premium_acc'] = 'on';
                 $_GET['premium_user'] = $_REQUEST['premium_user'] = $Url['user'];
                 $_GET['premium_pass'] = $_REQUEST['premium_pass'] = $Url['pass'];
+                //$auth holds url-encoded Basic Http Authentication e.g "username:password"
                 $auth = urlencode(encrypt(base64_encode(rawurlencode($Url['user']) . ':' . rawurlencode($Url['pass']))));
                 unset($Url['user'], $Url['pass']);
             } elseif (empty($Url['user']) xor empty($Url['pass'])) unset($Url['user'], $Url['pass']);
 
             $LINK = rebuild_url($Url);
 
-            if (!in_array($Url['scheme'], array('http', 'https', 'ftp'))) echo "<script type='text/javascript'>updateStatus($i, '" . lang(24) . "');</script>$nn";
+            // URL protocol isn't http, https nor ftp so must be invalid link => Invalid URL
+            if (!in_array($Url['scheme'], array('http', 'https', 'ftp'))) echo "<script type='text/javascript'>updateStatus($i, '" . lang(24) /*Invalid URL*/ . "');</script>$nn";
             else {
-                require_once(TEMPLATE_DIR . '/transloadui.php');
+                //Display auto transload UI
+                require_once(TEMPLATE_DIR . 'transloadui.php');
                 echo "<div id='progress$i' style='display:block;'>$nn";
                 $isHost = false;
                 $redir = $lastError = '';
+
+                //test if host of url is supported
                 foreach ($host as $site => $file) {
                     if (host_matches($site, $Url['host'])) { //if (preg_match("/^(.+\.)?".$site."$/i", $Url['host'])) {
                         $isHost = true;
                         try {
                             require_once(HOST_DIR . 'DownloadClass.php');
                             require_once(HOST_DIR . 'download/' . $file);
-                            $class = substr($file, 0, -4);
+                            $class = substr($file, 0, -4); //delete ".php" string from class name
                             $firstchar = substr($file, 0, 1);
-                            if ($firstchar > 0) $class = "d$class";
+                            if ($firstchar > 0) $class = "d$class"; //prefix class name with "d" for "Download"
+                            //if download class exists for host then start download
                             if (class_exists($class)) {
+                                //don't echo the "Retrieving download page"
                                 $hostClass = new $class(false);
+                                /* Calls Download function in "/hosts/download/$file" e.g $file = "adrive_com.php"
+                                  which extends the RedirectDownload function in "hosts/DownloadClass.php" */
                                 $hostClass->Download($LINK);
-                            }
+                             }
                         } catch (Exception $e) {
                             echo "</div><script type='text/javascript'>updateStatus($i, '" . htmlentities($e->getMessage()) . "');$nn" . "document.getElementById('progress$i').style.display='none';</script>$nn";
                             continue 2;

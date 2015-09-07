@@ -15,7 +15,7 @@ class DownloadClass {
 		echo('<table width="600" align="center">');
 		echo('<tr>');
 		echo('<td align="center">');
-		echo('<div id="mesg" width="100%" align="center">' . lang(300) . '</div>');
+		echo('<div id="mesg" width="100%" align="center">' . lang(300) /*Retrieving download page*/ . '</div>');
 	}
 
 	/*
@@ -75,7 +75,10 @@ class DownloadClass {
 		}
 		$url = parse_url($link);
 		$params = $this->DefaultParamArr($link, (!empty($cookie) ? (is_array($cookie) ? encrypt(CookiesToStr($cookie)) : encrypt($cookie)) : 0), $referer);
+
+		//$params['filename'] = urlencode($FileName);
 		$params['filename'] = urlencode($FileName);
+
 		if (!empty($force_name)) $params['force_name'] = urlencode($force_name);
 		$params['host'] = urlencode($url['host']);
 		if (!empty($url['port'])) $params['port'] = urlencode($url['port']);
