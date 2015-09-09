@@ -28,8 +28,6 @@ pic1.src="templates/plugmod/images/ajax-loading.gif";
 /* ]]> */
 </script>
 <script type="text/javascript" src="classes/js.js"></script>
-
-
 <?php
 if ($options['ajax_refresh']) { echo '<script type="text/javascript" src="classes/ajax_refresh.js"></script>'.$nn; }
 if ($options['flist_sort']) { echo '<script type="text/javascript" src="classes/sorttable.js"></script>'.$nn; }

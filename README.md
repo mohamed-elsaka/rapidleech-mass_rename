@@ -4,7 +4,7 @@ To Do:
 
 ( ) Add auto-upload option to YouTube
 
-(+) Add --filename option to audl.php links to allow auto-renaming of files (Work only with Direct links & "Run Server-side" is checked)
+(+) Add --filename option to audl.php links to allow auto-renaming of files (Work only when "Run Server-side" is checked)
 
  e.g https://site.com/randomfilename --filename "file1"
 

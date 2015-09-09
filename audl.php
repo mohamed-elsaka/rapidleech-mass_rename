@@ -12,27 +12,6 @@ login_check();
 
 require(TEMPLATE_DIR . '/header.php');
 ?>
-<script type="text/javascript" src="pluralsight/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript">
-		$(function() {
-
-			$("#btnGetCourse").click(function (e) {
-
-				alert("sdf");
-				$("#trPulledFileNames").css('display', '');
-				$.ajax({
-					type: "GET",
-					url: 'pluralsight/downloadCoursePage.php',
-					data: {'courseUrl':'www.pluralsight.com/courses/bash-shell-scripting'},
-				success: function (data) {
-					$("#divPulledFileNames").append( data);
-					// $("#tempForm").load('URL to tv_form.php'); // www.example.com/file.php
-				}
-			});
-
-		});
-		});
-	</script>
     <br/>
 <center>
 <?php
@@ -536,8 +515,6 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                                             style="display: none;"><?php echo lang(45); ?>: <input
                                                                 type="text" name="serversidedelay"/></td>
                                                     </tr>
-
-                                                    <?php include "pluralsight/pluralsight_course_list.php" ?>
                                                 </table>
                                             </td>
                                         </tr>
