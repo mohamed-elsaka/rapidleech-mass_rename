@@ -19,6 +19,7 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
     $_REQUEST['links'] = (isset($_REQUEST['links'])) ? trim($_REQUEST['links']) : '';
     if (empty($_REQUEST['links'])) html_error('No link submited');
     $getlinks = array_values(array_unique(array_filter(array_map('trim', explode("\r\n", $_REQUEST['links'])))));
+
     if (count($getlinks) < 1) html_error('No links submited');
     if (isset($_REQUEST['server_side']) && $_REQUEST['server_side'] == 'on') {
         $GLOBALS['throwRLErrors'] = true;
@@ -60,6 +61,15 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             unset($bytesReceived);
 
             $LINK = $getlinks[$i];
+
+            //if --filename is assigned to link, use the supplied name
+            $fileNameArgStartPos = strpos($LINK, " --filename=");
+            if( $fileNameArgStartPos > 0 ){
+                $force_name = trim( substr($LINK, $fileNameArgStartPos+strlen(" --filename=")+1, -1 ) );
+                $LINK = trim(substr($LINK, 0, $fileNameArgStartPos));
+                $force_name .= trim(substr($LINK, -4 ));
+            }
+
             $Url = parse_url($LINK);
             $Url['scheme'] = strtolower($Url['scheme']);
             $Url['path'] = (empty($Url['path'])) ? '/' : str_replace('%2F', '/', rawurlencode(rawurldecode($Url['path'])));
@@ -119,7 +129,13 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                     }
                 }
                 if (!$isHost) {
-                    $FileName = isset($Url['path']) ? basename($Url['path']) : '';
+                    //check if user supplied --filename= arg in link
+                    if(isset($force_name) && trim($force_name) != ""){
+                        $FileName = $force_name;
+                    }else{
+                        $FileName = isset($Url['path']) ? basename($Url['path']) : '';
+                    }
+
                     $redir = GetDefaultParams();
                     $redir['filename'] = urlencode($FileName);
                     $redir['host'] = urlencode($Url['host']);

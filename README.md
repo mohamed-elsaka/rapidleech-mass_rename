@@ -1,9 +1,12 @@
 To Do:
-( ) Add --filename option to audl.php links to allow auto-renaming of files e.g https://site.com/randomfilename --filename "file1"
 
 ( ) Add choose playlist option for youtube upload
 
 ( ) Add auto-upload option to YouTube
+
+(+) Add --filename option to audl.php links to allow auto-renaming of files (Work only when "Run Server-side" is checked)
+
+ e.g https://site.com/randomfilename --filename "file1"
 
 ==> For Support Related Rapidleech Visit - www.rapidleech.com
 
