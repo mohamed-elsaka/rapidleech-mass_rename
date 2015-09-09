@@ -2,7 +2,7 @@
 
 function rar() {
   global $PHP_SELF, $list, $options;
-  if (!is_file(ROOT_DIR.'/rar/rar')) { echo lang(343).'<br /><br />'; }
+  if (!is_file(ROOT_DIR.'/rar/rar')) { echo lang(343)./*Can not find "rar"<br />You may need to download it and extract "rar" to "/rar/" directory'*/ '<br /><br />'; }
   else {
 ?>
   <form name="rar_files" method="post" action="<?php echo $PHP_SELF; ?>">
@@ -12,7 +12,7 @@ function rar() {
           <table>
             <tr>
               <td colspan="2" class="rar-main-td">
-                <b><?php echo lang(344); ?></b>
+                <b><?php echo lang(344) /* Files that will be archived */; ?></b>
               </td>
             </tr>
 <?php
