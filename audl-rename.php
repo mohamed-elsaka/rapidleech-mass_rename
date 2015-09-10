@@ -12,6 +12,10 @@ login_check();
 
 require(TEMPLATE_DIR . 'header.php');
 ?>
+
+<script type="text/javascript" src="classes/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="classes/audl-rename.js"></script>
+
     <br/>
 <center>
 <?php
@@ -22,13 +26,13 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
     if (empty($_REQUEST['links'])) html_error('No link submited');
     $getlinks = array_values(array_unique(array_filter(array_map('trim', explode("\r\n", $_REQUEST['links'])))));
     if (count($getlinks) < 1) html_error('No links submited');
-
+/*
     //fileNames passed
     $_REQUEST['fileNames'] = (isset($_REQUEST['fileNames'])) ? trim($_REQUEST['fileNames']) : '';
     if (empty($_REQUEST['fileNames'])) html_error('No fileNames submited');
     $getFileNames = array_values(array_unique(array_filter(array_map('trim', explode("\r\n", $_REQUEST['fileNames'])))));
     if (count($getFileNames) < 1) html_error('No fileNames submited');
-
+*/
     //run Server-side ?
     if (isset($_REQUEST['server_side']) && $_REQUEST['server_side'] == 'on') {
         $GLOBALS['throwRLErrors'] = true;
@@ -76,6 +80,32 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             unset($bytesReceived);
 
             $LINK = $getlinks[$i];
+
+            //if --filename is assigned to link, use the supplied name
+            $fileNameArgStartPos = strpos($LINK, " --filename=");
+            if( $fileNameArgStartPos > 0 ){
+                $force_name = trim( substr($LINK, $fileNameArgStartPos+strlen(" --filename=")+1, -1 ) );
+                $LINK = trim(substr($LINK, 0, $fileNameArgStartPos));
+                /*Panteao
+                    https://cdnsecakmi.kaltura.com/s/p/802792/sp/80279200/serveFlavor/entryId/0_x18cwzhf/v/12/
+                    flavorId/0_y47orn45/forceproxy/true/name/a.mp4?aeauth=1441846702_3fc9d04437689554300d3df42f059128*/
+                /*Pluralsight
+                    http://vid.pluralsight.com/expiretime=1438861047/88f322852ae25d10688195573db9bdb6/
+                    clip-videos/andrew-mallett/linux-installation-configuration-m2/
+                    linux-installation-configuration-m2-03/1024x768mp4/20140602133244.mp4*/
+               /*Archive.org
+                    https://ia601507.us.archive.org/34/items/usmle_first_aid_express_2012/Endocrine_Pathology_Part_2.mp4 */
+                if( strpos($LINK, "a.mp4?aeauth=")>0 || strpos($LINK, "vid.pluralsight.com")>0 ){
+                    //Panteao or Pluralsight Link
+                    $force_name .= ".mp4";
+                }elseif(strpos($LINK, "archive.org")>0){
+                    $lastDotPos = strrpos($LINK, ".");
+                    $force_name .= substr($LINK, $lastDotPos);
+                }
+
+            }
+
+
             $Url = parse_url($LINK); //returns array of link components
                 /*e.g if($LINK == "http://username:password@hostname:9090/path?arg=value#anchor" )
                     then it returns to $Url the following >>
@@ -163,7 +193,13 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                     }
                 }
                 if (!$isHost) {
-                    $FileName = isset($Url['path']) ? basename($Url['path']) : '';
+                    //check if user supplied --filename= arg in link
+                    if(isset($force_name) && trim($force_name) != ""){
+                        $FileName = $force_name;
+                    }else{
+                        $FileName = isset($Url['path']) ? basename($Url['path']) : '';
+                    }
+
                     $redir = GetDefaultParams();
                     $redir['filename'] = urlencode($FileName);
                     $redir['host'] = urlencode($Url['host']);
@@ -386,9 +422,21 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                 <div id="listing" style="display:block;">
                                     <table border="0" style="width:710px;">
                                         <tr>
-                                            <td align="center"><label>Links:</label><textarea
+                                            <td align="center"><label>1) Put File Names here: </label><textarea
                                                     style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); word-wrap: normal; overflow-x: scroll; white-space: pre;"
-                                                    id="links" name="links" rows="25" cols="100"></textarea>
+                                                    id="links" name="links" rows="25" cols="100">
++01-GIT_Pharm
+++Lesson1
+++Lesson2
++02-CVS_Pharm
+++Lesson1
+++Lesson2
+++Lesson3
+++Lesson4
+
+
+
+</textarea>
                                             </td>
                                             <td align="center">
                                                 <label
@@ -397,15 +445,18 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                                 </label>
                                             </td>
                                             <td align="center">
-                                                <label>File Names:</label>
+                                                <label> 2) Put Links here: </label>
                                                 <textarea
                                                     style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); white-space: pre; word-wrap: normal; overflow-x: scroll;"
-                                                    name="fileNames" id="fileNames" rows="25" cols="100"></textarea>
+                                                    name="linksUserInput" id="linksUserInput" rows="25" cols="100"></textarea>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="20" align="center"><input type="submit"
-                                                                                   value="<?php echo lang(34); ?>"
+
+                                            <td colspan="20" align="center">
+                                            <input value="3) Preview" id="btnPreview" style="width: 100px; margin-right: 40px;" type="button">
+                                            <input type="submit"
+                                                                                   value="4) <?php echo lang(34); ?>"
                                                                                    onclick="javascript:HideAll();"
                                                                                    style="width:100px;"/></td>
                                         </tr>
@@ -543,7 +594,7 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><label><input type="checkbox" name="server_side" value="on"
+                                                        <td><label><input type="checkbox" name="server_side" checked="checked" value="on"
                                                                           onclick="javascript:var displ=this.checked?'':'none';document.getElementById('serverside').style.display=displ;"/>&nbsp;<?php echo lang(43); ?>
                                                             </label></td>
                                                     </tr>

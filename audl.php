@@ -67,7 +67,23 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
             if( $fileNameArgStartPos > 0 ){
                 $force_name = trim( substr($LINK, $fileNameArgStartPos+strlen(" --filename=")+1, -1 ) );
                 $LINK = trim(substr($LINK, 0, $fileNameArgStartPos));
-                $force_name .= trim(substr($LINK, -4 ));
+                /*Panteao
+                    https://cdnsecakmi.kaltura.com/s/p/802792/sp/80279200/serveFlavor/entryId/0_x18cwzhf/v/12/
+                    flavorId/0_y47orn45/forceproxy/true/name/a.mp4?aeauth=1441846702_3fc9d04437689554300d3df42f059128*/
+                /*Pluralsight
+                    http://vid.pluralsight.com/expiretime=1438861047/88f322852ae25d10688195573db9bdb6/
+                    clip-videos/andrew-mallett/linux-installation-configuration-m2/
+                    linux-installation-configuration-m2-03/1024x768mp4/20140602133244.mp4*/
+               /*Archive.org
+                    https://ia601507.us.archive.org/34/items/usmle_first_aid_express_2012/Endocrine_Pathology_Part_2.mp4 */
+                if( strpos($LINK, "a.mp4?aeauth=")>0 || strpos($LINK, "vid.pluralsight.com")>0 ){
+                    //Panteao or Pluralsight Link
+                    $force_name .= ".mp4";
+                }elseif(strpos($LINK, "archive.org")>0){
+                    $lastDotPos = strrpos($LINK, ".");
+                    $force_name .= substr($LINK, $lastDotPos);
+                }
+
             }
 
             $Url = parse_url($LINK);
@@ -109,6 +125,7 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                 echo "<div id='progress$i' style='display:block;'>$nn";
                 $isHost = false;
                 $redir = $lastError = '';
+
                 foreach ($host as $site => $file) {
                     if (host_matches($site, $Url['host'])) { //if (preg_match("/^(.+\.)?".$site."$/i", $Url['host'])) {
                         $isHost = true;
@@ -507,7 +524,7 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                                             </label></td>
                                                     </tr>
                                                     <tr id="serverside" style="display: none;">
-                                                        <td><input type="checkbox" name="server_dodelay" value="on"
+                                                        <td><input type="checkbox" name="server_dodelay" checked="checked" value="on"
                                                                    onclick="javascript:var displ=this.checked?'':'none';document.getElementById('serverdelay').style.display=displ;"/><?php echo lang(44); ?>
                                                         </td>
                                                         <td>&nbsp;</td>
