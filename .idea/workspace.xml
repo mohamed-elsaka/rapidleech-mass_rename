@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02dd0eab-a257-4fb0-a4dd-448d88bc0c8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/audl-rename.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/jquery-1.11.3.min.js" />
-      <change type="DELETED" beforePath="D:\wamp\www\rapidleech-mass_rename\files\file1_.flv" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\rapidleech-mass_rename\files\file2.flv" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\rapidleech-mass_rename\files\file3_.flv" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\rapidleech-mass_rename\files\whatsnew.rar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/configs/files.lst" afterPath="$PROJECT_DIR$/configs/files.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audl-rename.php" afterPath="$PROJECT_DIR$/audl-rename.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audl.php" afterPath="$PROJECT_DIR$/audl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="02dd0eab-a257-4fb0-a4dd-448d88bc0c8e" name="Default" comment="" />
     <ignored path="rapidleech-mass_rename.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -303,7 +292,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17715959" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
