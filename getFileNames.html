@@ -6,65 +6,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function($) {
-			$("#btnFormat").click(function(e) {
-				//check if Panteao or Pluralsight
-				e.preventDefault();
-				var siteChecked = "";
-				siteChecked = $('input[name="site"]:checked', '#form1').val();
-				
-				if(siteChecked == "panteao"){
-					formatPanteaoFilenames();
-				}else if(siteChecked == "pluralsight"){
-					//alert("call formatPluralsightFilenames ");
-					formatPluralsightFilenames();
-
-				}else{
-					alert("Unknown Site!");
-				}
-
-			});
-		
-			function formatPluralsightFilenames(){
-				var datahtml = $("#txtFileNames").val();
-				if( datahtml.indexOf('class="section-container accordion"') > 0 ){
-					//correct container go ahead!
-				    $('#div1').append(datahtml);
-
-			    	var outputText = "";
-
-				    //go through Chapters &  get their lessons
-				    var rawHtmlObj = $('div.section-container.accordion');
-					//loop through sections 
-				    rawHtmlObj.find('div.section.ng-scope').each(function(index, el) {
-				    	//get section names
-				    	var sectionName = $(this).find('p.title a').text().trim();
-				    	if( sectionName != "" ){ 
-				    		outputText += "+" + sectionName + "\n"; 
-
-				    		//loop through sections & get lessons
-				    		//$(this).each(function(index, el) {
-				    			$(this).find('li h5').each(function(index, el) {
-				    				var lessonName = $(this).text().trim();
-				    				if( lessonName != "" ){ 
-						    			outputText += "++" + lessonName + "\n"; 
-						    		}
-				    			});
-						    	
-				    		//});
-				    	}
-				    });
-
-				    if(outputText != ""){
-				    	$("#txtFileNames").val(outputText);
-				    }
-
-				}
-   
-			}
-
-			function formatPanteaoFilenames(){
-
-			}
+			
 		});
 	</script>
 
@@ -100,7 +42,7 @@
 											</td>
 										</tr>
 										<tr>
-											<td align="center" valign="top">
+											<td align="right" valign="top">
 												<input type="button" id="btnFormat" value="Get Formatted FileNames"  />
 											</td>
 										</tr>

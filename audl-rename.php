@@ -422,9 +422,15 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                 <div id="listing" style="display:block;">
                                     <table border="0" style="width:710px;">
                                         <tr>
-                                            <td align="center"><label>1) Put File Names here: </label><textarea
-                                                    style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); word-wrap: normal; overflow-x: scroll; white-space: pre;"
-                                                    id="links" name="links" rows="25" cols="100">
+                                            <td align="center">
+                                                <div id="div1" style="display: none;"></div>
+                                                <label>1) Put File Names here: </label><br/>OR:<br/>
+                                                    <label> -Enter raw Html from PluralSight or Panteao then Click "Get Formatted FileNames".</label><br/>
+                                                    <input type="button" id="btnFormat" value="Get Formatted FileNames" style="margin-left: 20px;" />
+                                                    <textarea
+                                                        style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); word-wrap: normal; overflow-x: scroll; white-space: pre;"
+                                                        id="links" name="links" rows="25" cols="100">
+ ====File NAmes Example======
 +01-GIT_Pharm
 ++Lesson1
 ++Lesson2
@@ -433,10 +439,10 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
 ++Lesson2
 ++Lesson3
 ++Lesson4
-
-
-
-</textarea>
+====Raw site Html========
+-For Panteao Enter OuterHtml of "div.nano-content" here (using Webdeveloper tools in Browser). \n
+-For PluralSight Enter OuterHtml of "div.section-container.accordion" here (using Webdeveloper tools in Browser.
+                                                    </textarea>
                                             </td>
                                             <td align="center">
                                                 <label
@@ -445,7 +451,7 @@ if (isset($_REQUEST['GO']) && $_REQUEST['GO'] == 'GO') {
                                                 </label>
                                             </td>
                                             <td align="center">
-                                                <label> 2) Put Links here: </label>
+                                                <label style="display: block; padding-top: 58px;"> 2) Put Links here: </label>
                                                 <textarea
                                                     style="width: 500px; height: 400px; border: 1px solid rgb(0, 46, 67); white-space: pre; word-wrap: normal; overflow-x: scroll;"
                                                     name="linksUserInput" id="linksUserInput" rows="25" cols="100"></textarea>
