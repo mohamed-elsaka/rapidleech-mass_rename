@@ -263,7 +263,7 @@ else
 <form action="<?php echo $PHP_SELF; ?>" name="flist" method="post">
 <?php echo renderActions(); ?>
 <div style="position:relative; width:800px; padding:1px 0px 1px 0px;">
-<div style="overflow:auto; height:auto; max-height:450px; width: 800px;">
+<div style="overflow:auto; height:auto; width: 800px;">
 <?php if ($options['flist_h_fixed']) { ?>
 <table id="table_filelist_h" cellpadding="3" cellspacing="1" class="filelist" align="left" style="position:absolute;left:0px;top:0px;">
 <tbody>

@@ -20,7 +20,8 @@ if (!empty($_GET['act']) && $_GET['act'] !== 'files') {
 						$newName = str_replace( $symbols_to_replace, "", $fileName );
 						$newName = str_replace("&","and",$newName);
 						$newName = str_replace(" ","_",$newName);
-						$newName = str_replace("—","-",$newName); 
+						$newName = str_replace("—","-",$newName);  
+						$newName = str_replace("–","-",$newName);
 						
 						$new_full_file_path = $files_dir .DIRECTORY_SEPARATOR .$newName;
 						//echo "full new file path: ".$new_full_file_path. "<br>";

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02dd0eab-a257-4fb0-a4dd-448d88bc0c8e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/audl-rename.js" afterPath="$PROJECT_DIR$/classes/audl-rename.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/audl-rename.php" afterPath="$PROJECT_DIR$/audl-rename.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getFileNames.html" afterPath="$PROJECT_DIR$/getFileNames.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hosts/upload/archive.org.index.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hosts/upload/archive.org.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/plugmod/main.php" afterPath="$PROJECT_DIR$/templates/plugmod/main.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rapidleech-mass_rename.iws" />
@@ -26,39 +26,7 @@
     <favorites_list name="rapidleech-mass_rename" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="audl-rename.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/audl-rename.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33208954">
-              <caret line="432" column="29" selection-start-line="432" selection-start-column="29" selection-end-line="432" selection-end-column="29" />
-              <folding>
-                <element signature="e#24342#24364#0#HTML" expanded="true" />
-                <element signature="e#24748#24774#0#HTML" expanded="true" />
-                <element signature="e#24896#25023#0#HTML" expanded="true" />
-                <element signature="e#26132#26174#0#HTML" expanded="true" />
-                <element signature="e#26314#26441#0#HTML" expanded="true" />
-                <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="audl-rename.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/audl-rename.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
-              <folding>
-                <element signature="e#72#3296#0" expanded="false" />
-                <element signature="e#349#462#0" expanded="false" />
-                <element signature="e#804#1722#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -85,6 +53,8 @@
         <option value="$PROJECT_DIR$/audl.php" />
         <option value="$PROJECT_DIR$/audl-rename.php" />
         <option value="$PROJECT_DIR$/classes/audl-rename.js" />
+        <option value="$PROJECT_DIR$/hosts/upload/archive.org.index.php" />
+        <option value="$PROJECT_DIR$/hosts/upload/archive.org.php" />
       </list>
     </option>
   </component>
@@ -168,7 +138,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="hosts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rapidleech-mass_rename" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rapidleech-mass_rename" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hosts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="upload" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -203,6 +191,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp\www\rapidleech-mass_rename\hosts\upload" />
       <recent name="D:\wamp\www\rapidleech-mass_rename\classes" />
       <recent name="D:\wamp\www\rapidleech-mass_rename" />
     </key>
@@ -279,28 +268,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17715959" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17715959" sideWeight="0.49434572" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990307" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.49434572" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963397" sideWeight="0.5056543" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5088853" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5088853" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -328,53 +317,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/languages/en.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="266" column="0" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hosts/upload/youtube.com.index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hosts/upload/youtube.com.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/http.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="900" column="0" selection-start-line="900" selection-start-column="0" selection-end-line="900" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1441867230915" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/other.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="391" column="0" selection-start-line="391" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/ftp.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -401,12 +343,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -416,12 +353,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -431,12 +363,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -446,12 +373,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -461,12 +383,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="346" column="96" selection-start-line="346" selection-start-column="96" selection-end-line="346" selection-end-column="96" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -483,12 +400,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="346" column="96" selection-start-line="346" selection-start-column="96" selection-end-line="346" selection-end-column="96" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -684,22 +596,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/http.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="265" column="0" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="markdown-preview-editor">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.5172415">
           <caret line="6" column="120" selection-start-line="6" selection-start-column="120" selection-end-line="6" selection-end-column="120" />
         </state>
+      </provider>
+      <provider editor-type-id="markdown-preview-editor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/jquery-1.11.3.min.js">
@@ -721,7 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,8 +632,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39823008">
           <caret line="534" column="46" selection-start-line="534" selection-start-column="46" selection-end-line="534" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audl-rename.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="432" column="29" selection-start-line="432" selection-start-column="29" selection-end-line="432" selection-end-column="29" />
           <folding>
-            <marker date="1441867230915" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1442017034332" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -747,18 +658,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/audl-rename.php">
+    <entry file="file://$PROJECT_DIR$/hosts/upload/archive.org.index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33208954">
-          <caret line="432" column="29" selection-start-line="432" selection-start-column="29" selection-end-line="432" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.09026549">
+          <caret line="3" column="47" selection-start-line="3" selection-start-column="47" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/http.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="81.42308">
+          <caret line="545" column="9" selection-start-line="545" selection-start-column="9" selection-end-line="545" selection-end-column="9" />
           <folding>
-            <element signature="e#24342#24364#0#HTML" expanded="true" />
-            <element signature="e#24748#24774#0#HTML" expanded="true" />
-            <element signature="e#24896#25023#0#HTML" expanded="true" />
-            <element signature="e#26132#26174#0#HTML" expanded="true" />
-            <element signature="e#26314#26441#0#HTML" expanded="true" />
-            <marker date="1442017034332" expanded="true" signature="8126:8140" placeholder="..." />
+            <marker date="1441589595413" expanded="true" signature="-1:-1" placeholder="/*...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hosts/upload/mediafire.com_member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.513274">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hosts/upload/mediafire.com_member.index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hosts/upload/archive.org.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0788956">
+          <caret line="62" column="96" selection-start-line="62" selection-start-column="96" selection-end-line="62" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hosts/upload/filefactory.com_member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32743362">
+          <caret line="57" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="77" selection-end-column="2" />
+          <folding>
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439716842000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hosts/upload/filefactory.com_member.index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06017699">
+          <caret line="2" column="9" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
