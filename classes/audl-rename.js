@@ -111,6 +111,7 @@ $( document ).ready(function() {
             $('#div1').empty().append(datahtml);
 
             var outputText = "";
+            var sectionNum = "0";
 
             //go through Chapters &  get their lessons
             var rawHtmlObj = $('div.section-container.accordion');
@@ -119,8 +120,11 @@ $( document ).ready(function() {
                 //get section names
                 var sectionName = $(this).find('p.title a').text().trim();
                 if( sectionName != "" ){ 
+                    sectionName = replaceBadChars(sectionName);
+                    sectionNum++;
+                    if (String(sectionNum).length < 2) sectionNum = "0" + String(sectionNum);
+                    outputText += "+" + sectionNum + "-" + sectionName + "\n"; 
 
-                    outputText += "+" + sectionName + "\n"; 
 
                     //loop through sections & get lessons
                     //$(this).each(function(index, el) {
